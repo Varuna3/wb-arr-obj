@@ -119,7 +119,7 @@ function addTen(arr) {
   let newArr = [];
 
   for (let i = 0; i < arr.length; i++) {
-    // code here
+    newArr.push(arr[i] + 10)
   }
 
   return newArr;
@@ -136,7 +136,7 @@ function personName() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code here
+  return person.firstName
 }
 
 //////////////////PROBLEM 13////////////////////
@@ -150,24 +150,24 @@ function personLocation() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code Here
+  return person['location']
 }
 
 //////////////////PROBLEM 14////////////////////
 
 //Use dot notation to add a new property to the object backpack called frontPocket with the value equal to "compass".
 
-const backpack = {};
-
-// Code Here
+const backpack = {
+  frontPocket: 'compass'
+};
 
 //////////////////PROBLEM 15////////////////////
 
 //Use bracket notation to add a material property to the box object.  Set it's value equal to the string 'cardboard'
 
-const box = {};
-
-// Code Here
+const box = {
+  material: 'cardboard'
+};
 
 //////////////////PROBLEM 16////////////////////
 
@@ -177,7 +177,7 @@ const person = {};
 
 person['firstName'] = 'sally';
 
-//code here
+let userFirstName = person.firstName
 
 //////////////////PROBLEM 17////////////////////
 
@@ -191,7 +191,10 @@ person['firstName'] = 'sally';
 // };
 
 function updateUser(user) {
-  // Code Here
+  user.name = 'Ryan'
+  user.pwHash = 'superSafe'
+  user.username = 'ryan2020'
+  return user
 }
 
 //////////////////PROBLEM 18////////////////////
@@ -199,20 +202,29 @@ function updateUser(user) {
 //Inside the function updateEmail, update the email property of the passed in object to be the value of the parameter str. Return the updated object.
 
 function updateEmail(obj, str) {
-  // Code here
+  obj.email = str
+  return obj
 }
 
 //////////////////PROBLEM 19////////////////////
 
 // Write a function called isOldEnough that takes a person obj and checks the age property to see if the person is old enough to enter the club.  If they are 21 or older return true else return false.
 
-// Code here
+const isOldEnough = (person) => {
+  if(person.age > 20)
+    return true
+  else
+    return false
+}
 
 //////////////////PROBLEM 20////////////////////
 
-//Create a function called addRole that takes in a user object as the first parameter and a string as the second parameter.  The string will represent the user's new role in the system (i.e. admin, creator, editor, visitor). Create a new property on the user object called "role" and assign the passed in string to it, then return the updated object.
+//Create a function called addRole that takes in a user object as the first parameter and a string as the second parameter. The string will represent the user's new role in the system (i.e. admin, creator, editor, visitor). Create a new property on the user object called "role" and assign the passed in string to it, then return the updated object.
 
-// Code here
+const addRole = (user, str) => {
+  user.role = str
+  return user
+}
 
 ///////////////////////////////////////////////////////
 
@@ -245,6 +257,7 @@ function checkAge(age) {
 // Rewrite the existing if statement as a ternary.
 
 function schoolStatus(status) {
+  return status == 'Good' ? 'Wow, great job kiddo!' : 'No more video games!'
   // if (status == 'Good') {
   //   return 'Wow, great job kiddo!'
   // } else {
@@ -261,7 +274,7 @@ function schoolStatus(status) {
 // If age is greater than 18, return: Somebody is really getting up there, huh?
 
 function messageBasedOnAge(age) {
-  //code here
+  return age === 18 ? 'Congrats on being an adult!' : age > 18 ? 'Somebody is really getting up there, huh?' : 'Not quite old enough, sorry.'
 }
 
 //////////////////PROBLEM 23////////////////////
@@ -269,7 +282,9 @@ function messageBasedOnAge(age) {
 // Create a function called outerFn, that takes in a callback as a parameter, and then returns that callback invoked.
 // To see it working, invoke outerFn at the bottom, passing in innerFn as the callback. You should now see "The innerFn is a callback!" in the console.
 
-// Create function here
+const outerFn = (f) => {
+  return f()
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function innerFn() {
@@ -285,7 +300,9 @@ function innerFn() {
 // The fullName function should return the callback, passing in firstName and lastName as parameters.
 // To test, invoke fullName with your first name, last name and the welcomeMessage function as arguments.
 
-// Create function fullName here
+const fullName = (fn, ln, func) => {
+  return func(fn, ln)
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function welcomeMessage(first, last) {
@@ -317,7 +334,9 @@ function drinkAlcohol() {
 
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Create function canDrink here
+const canDrink = (age, soda, vodka) => {
+  return age < 21 ? soda() : vodka()
+}
 
 //////////////////PROBLEM 26////////////////////
 
@@ -326,4 +345,14 @@ function drinkAlcohol() {
 // Write a function called math that takes in two numbers, and a callback 'operator' as parameters.
 // This function should return a operator invoked with the appropriate arguments.
 
-//Code here
+const add = (x, y) => {
+  return x + y
+}
+
+const multiply = (x, y) => {
+  return x * y
+}
+
+const math = (n1, n2, op) => {
+  return op(n1, n2)
+}
